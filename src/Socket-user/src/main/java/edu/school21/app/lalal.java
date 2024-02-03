@@ -1,11 +1,10 @@
 package edu.school21.app;
 
-import javax.swing.plaf.TableHeaderUI;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Main {
+public class lalal {
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket("127.0.0.1", 8081);
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));

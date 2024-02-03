@@ -8,38 +8,19 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.SimpleCommandLinePropertySource;
 
 import java.io.*;
-import java.net.Socket;
 import java.sql.SQLException;
-import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @ComponentScan(basePackages = "edu.school21")
 public class Main {
-
     public static void main(String[] args) throws IOException, SQLException {
+        ExecutorService executorService = Executors.newCachedThreadPool();
         AnnotationConfigApplicationContext context = getArgs(args);
         Server server = context.getBean("server", Server.class);
-        UsersService usersService = context.getBean("usersServiceImpl", UsersServiceImpl.class);
         server.init();
-        Socket input = server.getServerSocket().accept();
-        BufferedReader in = new BufferedReader(new InputStreamReader(input.getInputStream()));
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(input.getOutputStream()));
-        out.write("Hello from Server!\n");
-        out.flush();
 
 
-        if("singUp".equals(in.readLine())) {
-            out.write("Enter username:\n");
-            out.flush();
-            String username = in.readLine();
-
-            out.write("Enter password:\n");
-            out.flush();
-            String password = in.readLine();
-            usersService.singUp(username, password);
-        } else System.out.println("мимо");
-
-
-        input.close();
         server.getServerSocket().close();
 
     }

@@ -1,6 +1,5 @@
 package edu.school21.app;
 
-import javax.swing.plaf.TableHeaderUI;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
@@ -28,29 +27,29 @@ public class Main {
         String password = scanner.nextLine();
         out.write(password + "\n");
         out.flush();
-
-        chat(in, out, scanner, username);
+        echo(in, out, scanner, username);
+        socket.close();
     }
 
-    public static void chat(BufferedReader in, BufferedWriter out, Scanner scanner, String username) throws IOException {
+    public static void echo(BufferedReader in,BufferedWriter out, Scanner scanner, String username) throws IOException {
         Thread thread = new Thread(() -> {
-            while (!Thread.currentThread().isInterrupted()) {
+            while(!Thread.currentThread().isInterrupted()) {
                 try {
-                    String s = in.readLine();
-                    if(s!=null) System.out.println(s);
+                    String inStr = in.readLine();
+                    if(inStr!=null)System.out.println(inStr);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         });
         thread.start();
-        String message = null;
-        while (!"exit".equals(message)) {
-            message = scanner.nextLine();
-            out.write(username + ": " + message + '\n');
+        String str = null;
+        while(!"exit".equalsIgnoreCase(str)) {
+            str = scanner.nextLine();
+            out.write(username + ": " + str + "\n");
             out.flush();
         }
+        System.out.println("You have left the chat.");
         thread.interrupt();
-        System.out.println("ya daun");
     }
 }

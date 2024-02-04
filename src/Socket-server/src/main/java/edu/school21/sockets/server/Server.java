@@ -8,16 +8,18 @@ import org.springframework.stereotype.Component;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 @Component("server")
 public class Server {
-    final List<BufferedWriter> list = new ArrayList<>();
+    public final List<Socket> sockets = Collections.synchronizedList(new ArrayList<>());
+    ExecutorService executorService = Executors.newCachedThreadPool();
     @Value("${port}")
     private String port;
 
@@ -30,21 +32,17 @@ public class Server {
     }
 
     public void init() throws IOException {
-        ExecutorService executorService = Executors.newCachedThreadPool();
         serverSocket = new ServerSocket(Integer.parseInt(port));
         while (true) {
-            try {
-                Socket input = getServerSocket().accept();
-                executorService.execute(() -> {
-                    try {
-                        inOrUp(input, usersService);
-                    } catch (IOException | SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            } catch (IOException ignore) {
-
-            }
+            Socket socket = serverSocket.accept();
+            sockets.add(socket);
+            executorService.execute(() -> {
+                try {
+                    inOrUp(socket, usersService);
+                } catch (IOException | SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         }
     }
 
@@ -55,9 +53,6 @@ public class Server {
     private void inOrUp(Socket input, UsersService usersService) throws IOException, SQLException {
         BufferedReader in = new BufferedReader(new InputStreamReader(input.getInputStream()));
         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(input.getOutputStream()));
-        synchronized (list) {
-            list.add(out);
-        }
         out.write("Hello from Server!\n");
         out.flush();
         String sing = in.readLine();
@@ -79,23 +74,24 @@ public class Server {
             out.flush();
             String password = in.readLine();
             usersService.singIn(username, password);
-            echo(in);
+            sendAll(in);
         } else System.out.println("что-то пошло не так!");
     }
 
-    public void echo(BufferedReader in) throws IOException {
-        while (true) {
+    public void sendAll(BufferedReader in) throws IOException {
+        while (!Thread.currentThread().isInterrupted()) {
             String message = in.readLine();
-            if(message != null && !list.isEmpty()) {
-                for (BufferedWriter bufferedReader : list) {
-                    try {
-                        bufferedReader.write(message + '\n');
-                        bufferedReader.flush();
-                    } catch (IOException e) {
-                        synchronized (list) {
-                            list.remove(bufferedReader);
-                            System.out.println("Пользователь с логином " + message.split(":")[0] + " вышел из системы.");
-                        }
+            if(message != null && !"".equals(message) && !sockets.isEmpty()) {
+                Iterator it = sockets.iterator();
+                while(it.hasNext()) {
+                    Socket socket = (Socket) it.next();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                    bufferedWriter.write(message + '\n');
+                    bufferedWriter.flush();
+                    if("exit".equalsIgnoreCase(message.split(": ")[1])){
+                        System.out.println("Пользователь с логином " + message.split(":")[0] + " вышел из системы.");
+                        it.remove();
+                        Thread.currentThread().interrupt();
                     }
                 }
             }

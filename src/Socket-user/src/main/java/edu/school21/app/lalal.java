@@ -27,29 +27,29 @@ public class lalal {
         String password = scanner.nextLine();
         out.write(password + "\n");
         out.flush();
+        echo(in, out, scanner, username);
 
-        chat(in, out, scanner, username);
     }
 
-    public static void chat(BufferedReader in, BufferedWriter out, Scanner scanner, String username) throws IOException {
+    public static void echo(BufferedReader in,BufferedWriter out, Scanner scanner, String username) throws IOException {
         Thread thread = new Thread(() -> {
-            while (!Thread.currentThread().isInterrupted()) {
+            while(!Thread.currentThread().isInterrupted()) {
                 try {
-                    String s = in.readLine();
-                    if(s!=null) System.out.println(s);
+                    String inStr = in.readLine();
+                    System.out.println(inStr);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         });
         thread.start();
-        String message = null;
-        while (!"exit".equals(message)) {
-            message = scanner.nextLine();
-            out.write(username + ": " + message + '\n');
+        String str = null;
+        while(!"exit".equalsIgnoreCase(str)) {
+            str = scanner.nextLine();
+            out.write(username + ": " + str + "\n");
             out.flush();
         }
         thread.interrupt();
-        System.out.println("ya daun");
+        System.out.println(username + " отключился я");
     }
 }

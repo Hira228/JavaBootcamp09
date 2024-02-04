@@ -15,7 +15,6 @@ import java.util.concurrent.Executors;
 @ComponentScan(basePackages = "edu.school21")
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
-        ExecutorService executorService = Executors.newCachedThreadPool();
         AnnotationConfigApplicationContext context = getArgs(args);
         Server server = context.getBean("server", Server.class);
         server.init();

@@ -1,5 +1,6 @@
 package edu.school21.sockets.server;
 
+import edu.school21.sockets.models.Room;
 import edu.school21.sockets.repositories.UsersRepository;
 import edu.school21.sockets.repositories.UsersRepositoryImpl;
 import edu.school21.sockets.services.UsersService;
@@ -21,6 +22,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Component("server")
 public class Server {
     public final List<Socket> sockets = Collections.synchronizedList(new ArrayList<>());
+    public List<Room> rooms = new ArrayList<>();
+    public int countRooms;
     ExecutorService executorService = Executors.newCachedThreadPool();
     @Value("${port}")
     private String port;
@@ -60,27 +63,47 @@ public class Server {
         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(input.getOutputStream()));
         out.write("Hello from Server!\n");
         out.flush();
+        out.write("1. signIn\n");
+        out.flush();
+        out.write("2. SignUp\n");
+        out.flush();
+        out.write("3. Exit\n");
+        out.flush();
         String sing = in.readLine();
-        if ("singUp".equals(sing)) {
-            out.write("Enter username:\n");
-            out.flush();
-            String username = in.readLine();
+        String username = null;
+        String password = null;
+        switch (sing) {
+            case "1":
+                out.write("Enter username:\n");
+                out.flush();
+                username = in.readLine();
 
-            out.write("Enter password:\n");
-            out.flush();
-            String password = in.readLine();
-            usersService.singUp(username, password);
-        } else if ("singIn".equals(sing)) {
-            out.write("Enter username:\n");
-            out.flush();
-            String username = in.readLine();
+                out.write("Enter password:\n");
+                out.flush();
+                password = in.readLine();
+                usersService.singIn(username, password);
+                createOrChoiceRoom(out, in, input);
+                break;
 
-            out.write("Enter password:\n");
-            out.flush();
-            String password = in.readLine();
-            usersService.singIn(username, password);
-            sendAll(in);
-        } else System.out.println("что-то пошло не так!");
+            case "2":
+                out.write("Enter username:\n");
+                out.flush();
+                username = in.readLine();
+
+                out.write("Enter password:\n");
+                out.flush();
+                password = in.readLine();
+                usersService.singUp(username, password);
+                createOrChoiceRoom(out, in, input);
+                break;
+
+            case "3":
+                break;
+
+            default:
+        }
+
+
     }
 
     public void sendAll(BufferedReader in) throws IOException {
@@ -104,5 +127,46 @@ public class Server {
                     usersRepository.saveMessage(message.split(":")[0], message.split(": ")[1]);
             }
         }
+    }
+
+    public void createOrChoiceRoom(BufferedWriter out, BufferedReader in, Socket socketUser) throws IOException {
+        out.write("1.\tCreate room\n");
+        out.flush();
+        out.write("2.\tChoose room\n");
+        out.flush();
+        out.write("3.\tExit\n");
+        out.flush();
+
+        String choice = in.readLine();
+
+        switch (choice) {
+            case "1":
+                out.write("Write down the name of the room.\n");
+                out.flush();
+                countRooms++;
+                rooms.add(new Room(in.readLine()));
+                rooms.get(countRooms - 1).roomAttendees.add(socketUser);
+                out.write("The room has been successfully created.\n");
+                out.flush();
+                sendAll(in);
+                break;
+            case "2":
+                out.write(Integer.toString(countRooms));
+                out.flush();
+                for(int i = 0; i < countRooms; ++i) {
+                    out.write(i + ". " + rooms.get(i).getName() + "\n");
+                    out.flush();
+                }
+                out.write((countRooms + 1) + ". Exit\n");
+                out.flush();
+
+                String numberRoom = in.readLine();
+                if(!(Integer.parseInt(numberRoom) > countRooms) || !(Integer.parseInt(numberRoom) < 0)) {
+                    rooms.get(Integer.parseInt(numberRoom)).roomAttendees.add(socketUser);
+                    sendAll(in);
+                }
+                break;
+        }
+
     }
 }

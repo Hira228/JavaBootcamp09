@@ -10,24 +10,60 @@ public class Main {
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println(in.readLine());
+        System.out.println(in.readLine());
+        System.out.println(in.readLine());
         System.out.println(in.readLine());
 
         String singUp = scanner.nextLine();
-        out.write(singUp + "\n");
-        out.flush();
+        if(!"3".equals(singUp)) {
+            out.write(singUp + "\n");
+            out.flush();
 
-        System.out.println(in.readLine());
+            System.out.println(in.readLine());
 
-        String username = scanner.nextLine();
-        out.write(username + "\n");
-        out.flush();
+            String username = scanner.nextLine();
+            out.write(username + "\n");
+            out.flush();
 
-        System.out.println(in.readLine());
+            System.out.println(in.readLine());
 
-        String password = scanner.nextLine();
-        out.write(password + "\n");
-        out.flush();
-        echo(in, out, scanner, username);
+            String password = scanner.nextLine();
+            out.write(password + "\n");
+            out.flush();
+            System.out.println(in.readLine());
+            System.out.println(in.readLine());
+            System.out.println(in.readLine());
+
+            String createOrSing = scanner.nextLine();
+            out.write(createOrSing + "\n");
+            out.flush();
+
+            switch (createOrSing) {
+                case "1":
+                    System.out.println(in.readLine());
+                    String nameRoom = scanner.nextLine();
+                    out.write(nameRoom + "\n");
+                    out.flush();
+                    System.out.println(in.readLine());
+                    echo(in, out, scanner, username);
+                    break;
+                case "2":
+                    int countRooms = Integer.parseInt(in.readLine());
+                    for(int i = 0; i < countRooms; ++i) {
+                        System.out.println(in.readLine());
+                    }
+                    System.out.println(in.readLine());
+                    String numberRoom = scanner.nextLine();
+                    if(!(Integer.parseInt(numberRoom) > countRooms) || !(Integer.parseInt(numberRoom) < 0)) {
+                        echo(in, out, scanner, username);
+                    }
+                    break;
+                case "3":
+                    break;
+            }
+        }
         socket.close();
     }
 

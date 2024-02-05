@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ba081596-9d83-4812-a084-720fd32a9fc3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Chat/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/app/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/config/SocketsApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/models/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/repositories/CrudRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/repositories/UsersRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/repositories/UsersRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/server/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/services/UsersService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/java/edu/school21/sockets/services/UsersServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/src/main/resources/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/app/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/config/SocketsApplicationConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/models/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/repositories/CrudRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/repositories/UsersRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/repositories/UsersRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/server/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/services/UsersService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-server/target/classes/edu/school21/sockets/services/UsersServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/src/main/java/edu/school21/app/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/src/main/java/edu/school21/app/lalal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/src/test/java/org/example/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/target/classes/edu/school21/app/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Socket-user/target/classes/edu/school21/app/lalal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/app/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/config/SocketsApplicationConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/repositories/CrudRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/repositories/UsersRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/repositories/UsersRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/server/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/services/UsersService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/classes/edu/school21/sockets/services/UsersServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/original-socket-server.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-server/target/socket-server.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ex00/Socket-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/classes/edu/school21/app/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/original-socket-server.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/socket-server.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/surefire-reports/TEST-org.example.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/surefire-reports/org.example.AppTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex00/Socket-user/target/test-classes/org/example/AppTest.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2bwyeGPcoFNOFEMnJtkGZQgQTYQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/gradyzan/Java_Bootcamp.Day09-1/src/ex01"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba081596-9d83-4812-a084-720fd32a9fc3" name="Changes" comment="" />
+      <created>1707140528243</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707140528243</updated>
+    </task>
+    <servers />
+  </component>
+</project>
